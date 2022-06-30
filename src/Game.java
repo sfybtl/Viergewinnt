@@ -155,6 +155,7 @@ public class Game {
             statusMessage = "Spieler " + winnerInDiagonals + " hat GEWONNEN.";
             winner = winnerInDiagonals;
             activePlayer = 0;
+
             UserInterface.setWinner(winnerInDiagonals);
             return;
         }

@@ -55,24 +55,25 @@ public class UserInterface {
         gameScreen.add(board);
     }
 
+    public static void initializeStartScreen() {
+        Startseite startseite = new Startseite();
+        startseite.setBounds(0, 0, 800, 600);
+        startScreen.add(startseite);
+    }
 
-
-    private static void initializeStartScreen() {
+    private static void initializeStartScreenButton() {
         JButton startbutton = new JButton("START");
         startbutton.setBounds(270, 170, 250, 150);
         startbutton.setForeground(Color.RED);
-        startbutton.setBackground(Color.orange);
 
         startbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Game.startNewGame(); // TODO Verbesserung
                 state = 1;
                 updateUI();
-
             }
         });
-
-
         startScreen.add(startbutton);
     }
 
@@ -146,9 +147,10 @@ public class UserInterface {
             startScreen = new JPanel();
             startScreen.setLayout(null);
             // initialize StartScreen
-            initializeStartScreen();
+            initializeStartScreenButton();
             // window add startScreen
             window.add(startScreen);
+            initialize();
         } else if (state == 1) {
             gameScreen = new JPanel();
             gameScreen.setLayout(null);
@@ -162,5 +164,11 @@ public class UserInterface {
         }
 
         window.setVisible(true);
+
+    }
+    public static void initialize() {
+        initializeStartScreen();
+        initializeStartScreenButton();
+        startScreen.setVisible(true);
     }
 }

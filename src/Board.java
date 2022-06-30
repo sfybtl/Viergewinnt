@@ -1,17 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
-
-import javax.swing.JFrame;
 
 
 public class Board extends JComponent {
     public static final int chipDiameter = 50;
     public static final int spacing = 4;
-    private static final Color backgroundColor = new Color(192, 192, 192);
+    private static final Color backgroundColor = new Color(183, 168, 111);
     private static final Color colorPlayer2 = new Color(255, 0, 0);
     private static final Color colorPlayer1 = new Color(0, 0, 255);
     private static final Color colorWinner = new Color(22, 193, 40);
@@ -46,8 +43,15 @@ public class Board extends JComponent {
 
     private void printStatusMessage(Graphics g2D, String message){
         g2D.setColor(Color.white);
-        g2D.drawString(message,180,25);
+        g2D.drawString(message,280,70);
     }
+
+    //private void renderwinner();
+
+      //  if(winner = 1 || 2) {
+        //    g2D.setColor(Color.green);
+    //}
+
     private void renderActivePlayer(Graphics g2D, int player){
         g2D.setColor(Color.white);
 
