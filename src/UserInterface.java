@@ -104,7 +104,8 @@ public class UserInterface {
         HomeButton.setVisible(true);
         gameScreen.add(HomeButton);
     }
-   // private static void initializeEndScreen() {
+   //
+    // private static void initializeEndScreen() {
      //   JButton homebutton = new JButton("HOME");
        // homebutton.setBounds(300, 400, 200, 100);
 
