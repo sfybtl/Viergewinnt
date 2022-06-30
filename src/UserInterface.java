@@ -11,7 +11,7 @@ public class UserInterface {
      * 1 = spiel
      * 2 = ende
      */
-    public static int state = 2;
+    public static int state = 0;
 
     // int game = 1;
     private static JPanel gameScreen;
@@ -36,7 +36,7 @@ public class UserInterface {
         for (int column = 0; column < Game.COLUMNS; column++) {
             JButton button = new JButton("\u25CF");
             int yPosition = 5 + labelHeight + 10;
-            button.setBounds((column * chipWidth) + (column * Board.spacing) + 180, yPosition + 50, chipWidth + 3, buttonHeight + 1);
+            button.setBounds((column * chipWidth) + (column * Board.spacing) + 211, yPosition + 50, chipWidth + 3, buttonHeight + 1);
             int targetColumn = column;
             button.addActionListener(new ActionListener() {
                 @Override
@@ -68,6 +68,7 @@ public class UserInterface {
             public void actionPerformed(ActionEvent e) {
                 state = 1;
                 updateUI();
+
             }
         });
 
@@ -97,25 +98,26 @@ public class UserInterface {
             public void actionPerformed(ActionEvent e) {
                 state = 0;
                 updateUI();
+
             }
         });
         HomeButton.setVisible(true);
         gameScreen.add(HomeButton);
     }
-    private static void initializeEndScreen() {
-        JButton homebutton = new JButton("HOME");
-        homebutton.setBounds(300, 400, 200, 100);
+   // private static void initializeEndScreen() {
+     //   JButton homebutton = new JButton("HOME");
+       // homebutton.setBounds(300, 400, 200, 100);
 
-        homebutton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                state = 0;
-                updateUI();
-            }
-        });
+        //homebutton.addActionListener(new ActionListener() {
+          //  @Override
+            //public void actionPerformed(ActionEvent e) {
+              //  state = 0;
+                //updateUI();
+           // }
+        //});
 
-        endScreen.add(homebutton);
-    }
+       // endScreen.add(homebutton);
+    //}
 
 
     public static void setWinner(int winner) {
@@ -126,7 +128,7 @@ public class UserInterface {
         weiterbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                state = 2;
+                state = 0;
                 updateUI();
             }
         });
@@ -151,11 +153,11 @@ public class UserInterface {
             gameScreen.setLayout(null);
             initializeGameScreen();
             window.add(gameScreen);
-        } else if (state == 2) {
-            endScreen = new JPanel();
-            endScreen.setLayout(null);
-            window.add(endScreen);
-            initializeEndScreen();
+        //} else if (state == 2) {
+        //    endScreen = new JPanel();
+        //    endScreen.setLayout(null);
+            // window.add(endScreen);
+            //initializeEndScreen();
         }
 
         window.setVisible(true);

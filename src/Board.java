@@ -1,5 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+
+import javax.swing.JFrame;
+
 
 public class Board extends JComponent {
     public static final int chipDiameter = 50;
@@ -21,18 +28,20 @@ public class Board extends JComponent {
         g2D.setColor(backgroundColor);
         g2D.fillRect(0,0,800,600);
 
-        int nP1 = 4;
-        int[] xP1 = {150, 150, 580, 580};
-        int[] yP1 = {170, 530, 530, 170};
-        g2D.setColor(new Color(200, 200,10));
-        g2D.fillPolygon(xP1, yP1,nP1);
+       // int nP1 = 4;
+        //int[] xP1 = {150, 150, 580, 580};
+        //int[] yP1 = {170, 530, 530, 170};
+        //g2D.setColor(new Color(200, 200,10));
+        //g2D.fillPolygon(xP1, yP1,nP1);
 
         renderBoard(g2D, Game.board);
+
         printStatusMessage(g2D, Game.statusMessage);
         renderActivePlayer(g2D, Game.activePlayer);
-        //repaint();
+        repaint();
 
     }
+
 
 
     private void printStatusMessage(Graphics g2D, String message){
@@ -49,10 +58,8 @@ public class Board extends JComponent {
     }
     private void renderBoard(Graphics g2D, int[][] board) {
 
-        int xPosition = 180;
+        int xPosition = 211;
         int yPosition = 180;
-
-
 
         for (int row = 0; row < Game.ROWS; row++) {
             for (int column = 0; column < Game.COLUMNS; column++) {
@@ -87,3 +94,5 @@ public class Board extends JComponent {
         }
     }
 }
+
+

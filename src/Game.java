@@ -18,6 +18,7 @@ public class Game {
     public static int winner = 0;
 
     public static String statusMessage = "";
+    public static Object title;
 
     public static void startNewGame() {
         activePlayer = 1;
